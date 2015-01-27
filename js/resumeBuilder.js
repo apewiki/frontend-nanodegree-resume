@@ -30,7 +30,7 @@ bio.display=function() {
   var myHTMLcontactGeneric=HTMLcontactGeneric.replace('%contact%', contacts.mobile).replace('%data%', contacts.email);
 
   var myHTMLmobile=HTMLmobile.replace('%data%',contacts.mobile);
-  var myHTMLemail=HTMLblog.replace('%data%',contacts.email);
+  var myHTMLemail=HTMLemail.replace('%data%',contacts.email);
   var myHTMLgithub=HTMLgithub.replace('%data%',contacts.GitHub);
   var myHTMLtwitter=HTMLtwitter.replace('%data%',contacts.twitter);
   var myHTMLlocation=HTMLlocation.replace('%data%',contacts.location);
