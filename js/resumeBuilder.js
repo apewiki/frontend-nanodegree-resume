@@ -1,33 +1,33 @@
 //Build contacts object
 var contacts={
-  "mobile":"201-555-5555", 
-  "email":"a1p2e3@gmail.com",
-  "GitHub":"apewiki",
-  "twitter":"@QZtwit01",
-  "location":"Bergen County, NJ"
+  'mobile': '201-555-5555', 
+  'email': 'a1p2e3@gmail.com',
+  'GitHub': 'apewiki',
+  'twitter': '@QZtwit01',
+  'location': 'Bergen County, NJ'
 };
 
-var welcomeMessage="Welcome!";
+var welcomeMessage='Welcome!';
 
-var skills=["Excel","C/C++","Python", "Java", "HTML/CSS", "Web Development", "Android Programming"];
+var skills=['Excel','C/C++','Python', 'Java', 'HTML/CSS', 'Web Development', 'Android Programming'];
 
-var biopic="./images/fry.jpg";
+var biopic='./images/fry.jpg';
 
 // Build bio object
 var bio={
-  "name": "Katie Zhang", 
-  "role":"Web Developer", 
-  "contacts":contacts, 
-  "welcomeMessage":welcomeMessage, 
-  "skills":skills, 
-  "biopic":biopic
+  'name': 'Katie Zhang', 
+  'role':'Web Developer', 
+  'contacts':contacts, 
+  'welcomeMessage':welcomeMessage, 
+  'skills':skills, 
+  'biopic':biopic
 }; 
 
 //Replace '%data' to create variables of HTML strings to be inserted before or after DOM elements
 bio.display=function() {
   var myHTMLheaderName=HTMLheaderName.replace('%data%',bio.name);
   var myHTMLheaderRole=HTMLheaderRole.replace('%data%',bio.role);
-  var myHTMLcontactGeneric=HTMLcontactGeneric.replace("%contact%", contacts.mobile).replace('%data%', contacts.email);
+  var myHTMLcontactGeneric=HTMLcontactGeneric.replace('%contact%', contacts.mobile).replace('%data%', contacts.email);
 
   var myHTMLmobile=HTMLmobile.replace('%data%',contacts.mobile);
   var myHTMLemail=HTMLblog.replace('%data%',contacts.email);
@@ -40,12 +40,9 @@ bio.display=function() {
   var myHTMLWelcomeMsg=HTMLWelcomeMsg.replace('%data%',bio.welcomeMessage);
   
 
-  $("#header").prepend(myHTMLheaderRole);
+  $('#header').prepend(myHTMLheaderRole);
   $('#header').prepend(myHTMLheaderName);
   $('#header').append(myHTMLbioPic);
-
-  
-  //$('#main').append(internationalizeButton);
 
 
   $('#topContacts').append(myHTMLmobile);
@@ -73,40 +70,42 @@ bio.display=function() {
 
 // Build Education object
 var ed2={
-  "name":"Purdue University","degree":"MSEE", 
-  "location":"West Lafayette, IN", 
-  "dates":"1994",
-  "majors":"Electrical Engineering",
-  "url":"http://www.purdue.edu"
+  'name': 'Purdue University',
+  'degree': 'MSEE', 
+  'location': 'West Lafayette, IN', 
+  'dates': '1994',
+  'majors': 'Electrical Engineering',
+  'url': 'http://www.purdue.edu'
 };
 
 var ed1={
-  "name":"Purdue University","degree":"MS", 
-  "location":"West Lafayette, IN", 
-  "dates":"1992",
-  "majors":"Mathematics",
-  "url":"http://www.purdue.edu"};
+  'name': 'Purdue University',
+  'degree': 'MS', 
+  'location': 'West Lafayette, IN', 
+  'dates': '1992',
+  'majors': 'Mathematics',
+  'url': 'http://www.purdue.edu'
+};
 
 var schools=[ed1,ed2];
 
 var onlineCourses=[
   {
-    "school":"udacity",
-    "title":"Web Development",
-    "date":"10/2014",
-    "URL":"https://www.udacity.com/course/cs253"
+    'school': 'udacity',
+    'title': 'Web Development',
+    'date': '10/2014',
+    'URL': 'https://www.udacity.com/course/cs253'
   },
   {
-    "school":"Cousera",
-    "title":"Android ",
-    "date":"7/2013",
-    "URL":"https://www.coursera.org/course/androidapps101"
+    'school': 'Coursera',
+    'title': 'Android Apps',
+    'date': '7/2013',
+    'URL': 'https://www.coursera.org/course/androidapps101'
   }
 ];
 
-var education={};
-education.schools=schools;
-education.onlineCourses=onlineCourses;
+var education={'schools': schools, 'onlineCourses': onlineCourses};
+
 
 //Iterate through schools and onlineCourses in education object to display education history
 education.display=function() {
@@ -114,12 +113,12 @@ education.display=function() {
   if (num_ed>0) {
     for (var i=0;i<num_ed;i++) {
       $('#education').append(HTMLschoolStart);
-      var myHTMLschoolName=HTMLschoolName.replace('%data%', schools[i]["name"]);
-      myHTMLschoolName=myHTMLschoolName.replace('"#"', schools[i]["url"]? schools[i]["url"]+' target="_blank"':'"#"');
-      var myHTMLschoolDegree=HTMLschoolDegree.replace('%data%', schools[i]["degree"]);
-      var myHTMLschoolLocation=HTMLschoolLocation.replace('%data%', schools[i]["location"]);
-      var myHTMLschoolDates=HTMLschoolDates.replace('%data%', schools[i]["dates"]);
-      var myHTMLschoolMajor=HTMLschoolMajor.replace('%data%', schools[i]["majors"]);
+      var myHTMLschoolName=HTMLschoolName.replace('%data%', schools[i]['name']);
+      myHTMLschoolName=myHTMLschoolName.replace('"#"', schools[i]['url']? schools[i]['url']+' target="_blank"':'"#"');
+      var myHTMLschoolDegree=HTMLschoolDegree.replace('%data%', schools[i]['degree']);
+      var myHTMLschoolLocation=HTMLschoolLocation.replace('%data%', schools[i]['location']);
+      var myHTMLschoolDates=HTMLschoolDates.replace('%data%', schools[i]['dates']);
+      var myHTMLschoolMajor=HTMLschoolMajor.replace('%data%', schools[i]['majors']);
       $('.education-entry:last').append(myHTMLschoolName+myHTMLschoolDegree);
       //$('.education-entry:last').append(myHTMLschoolDegree);
       $('.education-entry:last').append(myHTMLschoolDates);
@@ -141,7 +140,6 @@ education.display=function() {
     var myHTMLonlineDates=HTMLonlineDates.replace('%data%', onlineCourses[i].date);
     var myHTMLonlineURL=HTMLonlineURL.replace('%data%', onlineCourses[i].URL);
     $('.education-entry:last').append(myHTMLonlineTitle+myHTMLonlineSchool);
-    //$('.education-entry:last').append(myHTMLonlineSchool);
     $('.education-entry:last').append(myHTMLonlineDates);
     $('.education-entry:last').append(myHTMLonlineURL);
   }
@@ -149,24 +147,28 @@ education.display=function() {
 
 //Build work object
 var job1={
-  "employer":"JPMorganChase",
-  "url":"http://www.jpmorgan.com",
-  "title":"Trader", 
-  "dates":"1998-2007",
-  "location":"NY, NY", 
-  "description":"Trading sophisticated financial derivative products. Book runner handling large deals."
+  'employer': 'JPMorganChase',
+  'url': 'http://www.jpmorgan.com',
+  'title': 'Trader', 
+  'dates': '1998-2007',
+  'location': 'NY, NY', 
+  'description': 'Trading sophisticated financial derivative products. ' + 
+    'In charge of several large interest rate swap books handling customer deal flows ' +
+    'as well as market making.'
 };
 
 var job2={
-  "employer":"JWZ Inc",
-  "title":"Consultant", 
-  "dates":"2007-Present",
-  "location":"Bergen County, NJ", 
-  "description":"Providing cutting edge techonological expertise to develope, implement and enhance complex financial systems."};
+  'employer': 'JWZ Inc',
+  'title': 'Consultant', 
+  'dates': '2007-Present',
+  'location': 'Bergen County, NJ', 
+  'description': 'Providing crucial analytical solutions to the developement, ' +
+    'implementation and enhancement of complex fixed income derivative trading systems.'
+};
 
 var jobs=[job1,job2];
 
-var work={"jobs":jobs};
+var work={'jobs': jobs};
 
 //Display method of work object: iterate through jobs to display employment history
 work.display=function() {
@@ -193,16 +195,16 @@ work.display=function() {
 //Build projects object
 var projects=[
   {
-    "dates":"9/2014",
-    "title":"Travel Blog", 
-    "description":"Private blog for traveling experience and nature exploration",
-    "images":"./images/alps2.jpg"
+    'dates': '9/2014',
+    'title': 'Travel Blog', 
+    'description': 'Private blog for traveling experience and nature exploration',
+    'images': './images/alps2.jpg'
   }, 
   {
-    "dates":"4/2014",
-    "title":"Android App", 
-    "description": "Basic music player",
-    "image":"./images/app.png"
+    'dates': '4/2014',
+    'title': 'Android App', 
+    'description': 'Basic music player',
+    'image': './images/app.png'
   }
 ];
 
