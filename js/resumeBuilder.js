@@ -136,9 +136,11 @@ education.display=function() {
 
   for  (i=0; i<num_onlineCourses; i++) {
     var myHTMLonlineTitle=HTMLonlineTitle.replace('%data%', onlineCourses[i].title);
+    myHTMLonlineTitle=myHTMLonlineTitle.replace('"#"',onlineCourses[i].URL + ' target="_blank"');
     var myHTMLonlineSchool=HTMLonlineSchool.replace('%data%', onlineCourses[i].school);
     var myHTMLonlineDates=HTMLonlineDates.replace('%data%', onlineCourses[i].date);
     var myHTMLonlineURL=HTMLonlineURL.replace('%data%', onlineCourses[i].URL);
+    myHTMLonlineURL=myHTMLonlineURL.replace('"#"', onlineCourses[i].URL + ' target="_blank"');
     $('.education-entry:last').append(myHTMLonlineTitle+myHTMLonlineSchool);
     $('.education-entry:last').append(myHTMLonlineDates);
     $('.education-entry:last').append(myHTMLonlineURL);
@@ -198,13 +200,13 @@ var projects=[
     'dates': '9/2014',
     'title': 'Travel Blog', 
     'description': 'Private blog for traveling experience and nature exploration',
-    'images': './images/alps2.jpg'
+    'images': ['./images/ice.png', './images/ice2.png']
   }, 
   {
     'dates': '4/2014',
     'title': 'Android App', 
     'description': 'Basic music player',
-    'image': './images/app.png'
+    'images': ['./images/app.png']
   }
 ];
 
@@ -216,11 +218,16 @@ projects.display=function () {
     var myHTMLprojectTitle=HTMLprojectTitle.replace('%data%',projects[i].title);
     var myHTMLprojectDates=HTMLprojectDates.replace('%data%',projects[i].dates);
     var myHTMLprojectDescription=HTMLprojectDescription.replace('%data%',projects[i].description);
-    var myHTMLprojectImage=HTMLprojectImage.replace('%data%',projects[i].image);
+    var num_imgs=projects[i].images.length;
+
     $('.project-entry:last').append(myHTMLprojectTitle);
     $('.project-entry:last').append(myHTMLprojectDates);
     $('.project-entry:last').append(myHTMLprojectDescription);
-    $('.project-entry:last').append(myHTMLprojectImage);
+    for (var j=0;j<num_imgs;j++) {
+      var myHTMLprojectImage=HTMLprojectImage.replace('%data%',projects[i].images[j]);
+      $('.project-entry:last').append(myHTMLprojectImage);
+    }
+    
   }
 }
 
