@@ -66,7 +66,7 @@ bio.display=function() {
     }
     $('#skills').append(myHTMLskills);
   }
-}
+};
 
 // Build Education object
 var ed2={
@@ -145,7 +145,7 @@ education.display=function() {
     $('.education-entry:last').append(myHTMLonlineDates);
     $('.education-entry:last').append(myHTMLonlineURL);
   }
-}
+};
 
 //Build work object
 var job1={
@@ -192,7 +192,7 @@ work.display=function() {
     $('.work-entry:last').append(myHTMLworkDescription);
     }
   }
-}
+};
 
 //Build projects object
 var projects=[
@@ -205,7 +205,7 @@ var projects=[
   {
     'dates': '4/2014',
     'title': 'Android App', 
-    'description': 'Basic music player',
+    'description': 'Draw and animate for fun!',
     'images': ['./images/app.png']
   }
 ];
@@ -227,9 +227,8 @@ projects.display=function () {
       var myHTMLprojectImage=HTMLprojectImage.replace('%data%',projects[i].images[j]);
       $('.project-entry:last').append(myHTMLprojectImage);
     }
-    
   }
-}
+};
 
 //Change last name to uppercase. Used by "Internationalize" button
 function inName() {
